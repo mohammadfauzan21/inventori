@@ -48,15 +48,12 @@ PERTANYAAN TUGAS 3
     
     def create_product(request):
     form = ProductForm(request.POST or None)
-
         if form.is_valid() and request.method == "POST":
             form.save()
             return HttpResponseRedirect(reverse('main:show_main'))
-
         context = {'form': form}
         return render(request, "create_product.html", context)
 
-    
 
     Intinya, fungsi tersebut berfungsi untuk memvalidasi input user menggunakan fungsi ProductForm yang telah dibuat dan untuk menyimpan data tersebut. Selain itu, create_product merender isi object 'form' ke create_product.html. Tidak hanya itu, saya mengubah fungsi show_main pada berkas yang sama, yakni views.py supaya dapat mengambil seluruh object Product yang tersimpan pada database dan memasukkannya ke dalam dict context dengan key products supaya dapat di render ke main.html. Supaya dapat mengakses fungsi-fungsi tersebut, saya melakukan import fungsi tersebut pada urls.py di folder main dan menambahkan path url "path('create-product', create_product, name='create_product')," untuk fungsi create_product. Kemudian, saya membuat berkas create_product.html pada direktori main/templates yang intinya menampilkan fields form yang sudah dibuat pada forms.py sebagai table dan membuat tombol submit untuk mengirimkan request ke view create_product(request). Berikut kode yang saya tambahkan pada berkas tersebut,
 
