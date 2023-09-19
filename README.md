@@ -45,7 +45,7 @@ PERTANYAAN TUGAS 3
 
     class tersebut berfungsi untuk menunjukkan model yang digunakan untuk form yang dimana ketika user menekan tombol untuk menyimpan, maka data yang dikirimkan akan disimpan menjadi sebuah object product. Selain itu, class itu juga menunjukkan field dari mode product yang digunakan untuk form yang sesuai dengan yang ada di models.py. Kemudian saya menambahkan "from django.http import HttpResponseRedirect, from main.forms import ProductForm, from django.urls import reverse" pada berkas views.py yang ada di direktori main. Di views.py juga, saya membuat sebuah fungsi baru create_product yang menerima parameter request. Berikut kodenya,
 
-    
+    '''
     def create_product(request):
     form = ProductForm(request.POST or None)
         if form.is_valid() and request.method == "POST":
@@ -53,7 +53,7 @@ PERTANYAAN TUGAS 3
             return HttpResponseRedirect(reverse('main:show_main'))
         context = {'form': form}
         return render(request, "create_product.html", context)
-
+    '''
 
     Intinya, fungsi tersebut berfungsi untuk memvalidasi input user menggunakan fungsi ProductForm yang telah dibuat dan untuk menyimpan data tersebut. Selain itu, create_product merender isi object 'form' ke create_product.html. Tidak hanya itu, saya mengubah fungsi show_main pada berkas yang sama, yakni views.py supaya dapat mengambil seluruh object Product yang tersimpan pada database dan memasukkannya ke dalam dict context dengan key products supaya dapat di render ke main.html. Supaya dapat mengakses fungsi-fungsi tersebut, saya melakukan import fungsi tersebut pada urls.py di folder main dan menambahkan path url "path('create-product', create_product, name='create_product')," untuk fungsi create_product. Kemudian, saya membuat berkas create_product.html pada direktori main/templates yang intinya menampilkan fields form yang sudah dibuat pada forms.py sebagai table dan membuat tombol submit untuk mengirimkan request ke view create_product(request). Berikut kode yang saya tambahkan pada berkas tersebut,
 
