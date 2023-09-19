@@ -128,6 +128,17 @@ PERTANYAAN TUGAS 3
     c. Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
     Saya menambahkan/menganti import yang berada paling atas di urls.py pada folder main menjadi ```from main.views import show_main, create_product, show_xml, show_json, show_xml_by_id, show_json_by_id```. Kemudian, saya menambahkan ```path('xml/', show_xml, name='show_xml'), path('json/', show_json, name='show_json'), path('xml/<int:id>/', show_xml_by_id, name='show_xml_by_id'), path('json/<int:id>/', show_json_by_id, name='show_json_by_id'),``` pada urlpatterns di berkas yang sama supaya fungsi yang sudah diimpor tadi bisa diakses.
 
+5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
+   Pertama-tama saya membuka postman. Kemudian, saya mengaktifkan env pada cmd path folder tugasnya dengan ```env\Scripts\activate.bat``` dan menjalankannya dengan ```python manage.py runserver```. Selanjutnya, saya meng-copy url lokal host saya dan memasukannya ke postman di bagian GET. Untuk mengakses create-product, saya menambahkan create-product pada akhir urlnya. Untuk mengakses xml, saya menambahkan xml pada akhir urlnya. Begitu juga dengan json. Tidak hanya itu, jika saya ingin mengakses data xml yang saya inginkan, saya menambahkan xml/1 pada url tersebut. Begitu juga dengan json.
+
+   ![Screenshot (1154)](https://github.com/mohammadfauzan21/inventori/assets/110477943/c67703ce-27d2-4e0f-beb3-cce1a842deff)
+   ![Screenshot (1155)](https://github.com/mohammadfauzan21/inventori/assets/110477943/8bf7dba5-3569-4906-90c0-c95e2919e4be)
+   ![Screenshot (1156)](https://github.com/mohammadfauzan21/inventori/assets/110477943/13645440-b0fa-4a83-8778-7e2fd7ea1736)
+   ![Screenshot (1157)](https://github.com/mohammadfauzan21/inventori/assets/110477943/9785f86d-9b08-4980-91b3-676644dceb1a)
+   ![Screenshot (1158)](https://github.com/mohammadfauzan21/inventori/assets/110477943/65fa0057-7ba6-4003-86ec-b42f3bd87e0d)
+
+6. Melakukan add-commit-push ke GitHub.
+   Saya memasukkan perintah ```git add .``` pada cmd path folder tugas saya. Kemudian saya melihat status dengan perintah ```git status```. Selanjutnya saya membuat commit dengan perintah ```git commit -m "Menyelesaikan tugas 3"``` dan mempushnya dengan ```git push -f origin main```
 ===========================================================================================================================
 
 PERTANYAAN TUGAS 2
