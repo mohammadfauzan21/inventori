@@ -178,10 +178,12 @@ PERTANYAAN TUGAS 4
    Akun 1
    Nama = meimei
    password = temennyamail
+   ![Screenshot (1190)](https://github.com/mohammadfauzan21/inventori/assets/110477943/e2705c91-5a14-42b6-9151-ff3420f92325)
 
    Akun 2
    Nama = mail
    password = temennyameimei
+   ![Screenshot (1189)](https://github.com/mohammadfauzan21/inventori/assets/110477943/c5a33686-81b2-42b6-8737-18121b760aa3)
 
    c. Menghubungkan model Item dengan User.
    Pertama-tama saya akan menambahkan suatu kode untuk membuat sebuah relationship antara satu produk dengan satu user dengan memasukkan kode berikut ke model Product yang telah dibuat sebelumnya,
@@ -374,7 +376,11 @@ PERTANYAAN TUGAS 3
 5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman, dan menambahkannya ke dalam README.md.
    Pertama-tama saya membuka postman. Kemudian, saya mengaktifkan env pada cmd path folder tugasnya dengan env\Scripts\activate.bat dan menjalankannya dengan python manage.py runserver. Selanjutnya, saya meng-copy url lokal host saya dan memasukannya ke postman di bagian GET. Untuk mengakses create-product, saya menambahkan create-product pada akhir urlnya. Untuk mengakses xml, saya menambahkan xml pada akhir urlnya. Begitu juga dengan json. Tidak hanya itu, jika saya ingin mengakses data xml yang saya inginkan, saya menambahkan xml/1 pada url tersebut. Begitu juga dengan json.
 
-   Screenshot (1154) Screenshot (1155) Screenshot (1156) Screenshot (1157) Screenshot (1158)
+   ![Screenshot (1154)](https://github.com/mohammadfauzan21/inventori/assets/110477943/143efa51-fb9b-4ca8-9985-563548138a04)
+   ![Screenshot (1155)](https://github.com/mohammadfauzan21/inventori/assets/110477943/1f32d771-d634-41db-b89e-5e40b1194627)
+   ![Screenshot (1156)](https://github.com/mohammadfauzan21/inventori/assets/110477943/7fa356e5-1e53-48a3-acdf-40c8226fbec5)
+   ![Screenshot (1157)](https://github.com/mohammadfauzan21/inventori/assets/110477943/5f5197f8-801d-4279-bb4a-7d30fe9bb24d)
+   ![Screenshot (1158)](https://github.com/mohammadfauzan21/inventori/assets/110477943/068a3907-b996-4aa1-91b3-2557930367e2)
 
 6. Melakukan add-commit-push ke GitHub.
    Saya memasukkan perintah git add . pada cmd path folder tugas saya. Kemudian saya melihat status dengan perintah git status. Selanjutnya saya membuat commit dengan perintah git commit -m "Menyelesaikan tugas 3" dan mempushnya dengan git push -f origin main
@@ -455,7 +461,7 @@ PERTANYAAN TUGAS 2
 
 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
-(Foto bagan)
+![MVT](https://github.com/mohammadfauzan21/inventori/assets/110477943/b722ea54-f7b4-42e6-94d7-1cc2fa27908b)
 
     Saat pengguna mengirimkan request HTTP melalui urls.py, urls.py mengirimkannya ke views.py. views.py akan meminta data ke models.py. Sementara itu, models.py akan mengambil data dari database dan dikirimkan ke views.py. Setelah mendapatkannya, views.py akan mengolahnya untuk ditampilkan ke pengguna. Setelah mengelolanya, data akan dikirim ke html sehingga pengguna dapat melihat requestnya
 
