@@ -1,15 +1,102 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ nameApp }}</h1>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid" style="align-items: baseline;">
+        <a class="navbar-brand" href="#" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">{{ nameApp }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <div class="nav-link active" aria-current="page">
+                        <h5>Welcome, <span>{{name}} dari {{class}}</span></h5>
+                    </div>
+                </li>
+            </ul>
+            <a href="{% url 'main:logout' %}">
+                <button>
+                    Logout
+                </button>
+            </a>
+        </div>
+    </div>
+</nav>
 
-    <h5>Name:</h5>
-    <p>{{name}}</p>
+<!-- Navbar end -->
 
-    <h5>Class:</h5> 
-    <p>{{class}}</p>
+    <div class="container">
+        <div class="title-addproduct border-0 shadow" style="padding: 20px 20px;">
+            <div class="head" style="margin-bottom: 20px;">
+                <div class="head-content">
+                    <h1 class="container-title" style="background-color: #0195eb; padding: 5px 0px; text-align: center;">Produk Tersedia</h1>
+                    <p class="container-desc" style="font-weight: bold; margin-bottom: 40px;">Produk yang masih ada dalam inventori berjumlah {{ products|length }}.</p>
+                </div>
+                <div class="primary-button">
+                    <a class="button" href="{% url 'main:create_product' %}">
+                        <button>
+                            Add New Product
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="table">
+                <table>
+                    <tr class="table-head">
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Amount</th>
+                        <th>Description</th>
+                    </tr>
+                    {% if products|length > 0 %}
+                        {% for product in products %}
+                        <tr class="table-content" style="background-color: #ffffff;">
+                            <td>{{product.name}}</td>
+                            <td>{{product.price}}</td>
+                            <td>{{product.amount}}</td>
+                            <td>{{product.description}}</td>
+                            <td>
+                                <a href="{% url 'main:edit_product' product.pk %}">
+                                    <button>
+                                        Edit
+                                    </button>
+                                </a>
+                                <a href="{% url 'main:delete_product' product.pk %}">
+                                    <button>
+                                        Delete
+                                    </button>
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td
+                            style="height: 100%; display: flex; justify-content: center; align-items: center; padding-block: 200px;">
+                            Tidak ada produk yang tersedia</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+    
+                    </tr>
+                    {% endif %}
+                </table>
+            </div>
+            <br />
+            <h5>Sesi terakhir login: {{ last_login }}</h5>
+            <br>
+        </div>
+    </div>
+</body>
 
-    <table>
+    <!-- <table>
         <tr>
             <th>Name</th>
             <th>Price</th>
@@ -25,6 +112,18 @@
                 <td>{{product.price}}</td>
                 <td>{{product.amount}}</td>
                 <td>{{product.description}}</td>
+                <td>
+                    <a href="{% url 'main:edit_product' product.pk %}">
+                        <button>
+                            Edit
+                        </button>
+                    </a>
+                    <a href="{% url 'main:delete_product' product.pk %}">
+                        <button>
+                            Delete
+                        </button>
+                    </a>
+                </td>
             </tr>
         {% endfor %}
     </table>
@@ -43,6 +142,6 @@
         <button>
             Logout
         </button>
-    </a>
+    </a> -->
 
 {% endblock content %}
