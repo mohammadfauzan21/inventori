@@ -1,6 +1,6 @@
     Nama = Mohammad Fauzan Aditya NPM = 2206827831 Kelas = PBP E
 
-website = http://mohammad-fauzan21-tutorial.pbp.cs.ui.ac.id
+website = http://mohammad-fauzan21-tugas.pbp.cs.ui.ac.id
 Pertanyaan Tugas 6
 
 1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
