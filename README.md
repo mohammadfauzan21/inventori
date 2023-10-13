@@ -1,53 +1,212 @@
     Nama = Mohammad Fauzan Aditya NPM = 2206827831 Kelas = PBP E
 
-Pertanyaan Tugas 5
-1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
-    Element Selector: Memilih elemen HTML berdasarkan nama tagnya. Misalnya, p memilih semua elemen <p>. Selector ini berguna untuk menerapkan style ke semua elemen tipe tertentu.
+Pertanyaan Tugas 6
 
-    ID Selector: Memilih elemen HTML berdasarkan atribut id-nya. Misalnya, #header memilih elemen dengan id="header". Selector ini berguna untuk menerapkan style pada elemen tertentu
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+   Asynchronous programming melakukan pekerjaan secara independent, yakni tidak terikat pada input output (I/O) protocol. Hal ini membuat waktu eksekusi dapat lebih cepat karena tiap modul atau task tidak perlu menunggu task lainnya selesai untuk berjalan. Lain halnya dengan synchronous programming. Synchronous programming mengeksekusi kode satu persatu sesuai dengan urutan dan prioritasnya. Hal ini membuat waktu eksekusi program menjadi lebih lama dibandingkan asynchronous programming.
 
-    Class Selector: Memilih elemen HTML berdasarkan atribut kelasnya. Misalnya, .highlight memilih semua elemen dengan class="highlight". Selector ini berguna untuk menerapkan gaya pada sekelompok elemen.
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+   Paradigma event-driven programming adalah kegiatan di program, yang berarti di JavaScript dan AJAX, ditentukan oleh suatu event dari user, seperti klik mouse, input pengguna, dan lainnya. Ketika terdapat event dari user, maka program baru meresponnya sesuai dengan kode yang ada. Seperti yang terdapat di tugas ini, terdapat kode yang mengimplementasikan event-driven programming, yaitu pada main.html terdapat button add product dengan id = button_add `<button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add Product</button>` . Button tersebut, dipasang event handler yang mengimplementasikan event-driven programming. Dimana terdapat `document.getElementById("button_add").onclick = addProduct` yang ketika user mengklik tombol tersebut maka akan menjalankan fungsi addProduct yang telah didefinisikan untuk menambahkan produk user.
 
-    Universal Selector: Memilih semua elemen HTML pada halaman. Misalnya, * memilih semua elemen. Selector ini berguna untuk menerapkan style ke seluruh elemen pada halaman.
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+   Penerapan asynchronous programming pada AJAX antara lain:
 
-    Attribute Selector: Memilih elemen HTML berdasarkan nilai atributnya. Misalnya, [type="text"] memilih semua elemen dengan type="text". Selector ini berguna untuk menerapkan style pada elemen dengan nilai atribut tertentu.
+   1. Sending a request: Saat user berinteraksi dengan halaman web, seperti mengklik tombol atau mengirimkan formulir, request AJAX ke trigger lalu mengirimkannya secara asinkron di latar belakang. Hal ini memungkinkan user dapat terus berinteraksi dengan halaman web.
+   2. Menghandle response: Setelah server memproses request dan mengirimkan kembali respons, browser menerima secara asinkron. Kemudian kode JavaScript menangani respons dan memperbarui konten halaman web tanpa merefresh seluruh halaman. Penanganan respons ini memastikan aplikasi web tetap responsif dan tidak menghalangi interaksi user
+   3. Mengupdate UI: Asynchronous programming pada AJAX memungkinkan pembaruan antarmuka pengguna secara real-time. Contohnya, dalam aplikasi obrolan, pesan baru dapat ditampilkan tanpa menyegarkan halaman, berkat penanganan data yang asynchronous antara browser dan server.
 
-    Descendant Selector: Memilih elemen HTML yang merupakan turunan dari elemen lain. Misalnya, ada ul li, yakni memilih semua elemen <li> yang merupakan turunan dari elemen <ul>. Selector ini berguna untuk menerapkan gaya pada elemen yang terdapat di dalam elemen lain.
-
-    Child Selector: Memilih elemen HTML yang merupakan turunan langsung dari elemen lain. Misalnya, ada ul > li, yakni memilih semua elemen <li> yang merupakan turunan langsung dari elemen <ul>. Selector ini berguna untuk menerapkan gaya pada elemen yang merupakan turunan langsung dari elemen lain.
-
-2. Jelaskan HTML5 Tag yang kamu ketahui.
-    <artikel>: Tag ini digunakan untuk mewakili artikel atau bagian konten yang tidak bergantung pada halaman lainnya.
-    <header>: Tag ini digunakan untuk menentukan header suatu bagian atau halaman.
-    <footer>: Tag ini digunakan untuk menentukan footer suatu bagian atau halaman.
-    <nav>: Tag ini digunakan untuk penjelasan sekumpulan link navigasi.
-    <section>: Tag ini digunakan untuk penjelasan bagian dokumen, seperti bab atau grup konten terkait.
-    <h1>: Tag ini memberikan efek tulisan besar seperti judul
-
-3. Jelaskan perbedaan antara margin dan padding.
-    Margin:
-        - Ruang di sekitar batas elemen.
-        - Mengontrol ruang di luar elemen.
-        - Membersihkan area di sekitar elemen.
-        - Dapat diubah secara individual untuk setiap sisi elemen.
-        - Mendorong elemen yang berdekatan menjauh.
-        - Digunakan untuk menciptakan ruang antar elemen.
-    Padding:
-        - Ruang antara batas elemen dan isinya.
-        - Mengontrol ruang di dalam elemen.
-        - Menentukan bagaimana elemen terlihat dan ditempatkan di dalam wadah.
-        - Bisa berupa bilangan negatif atau bilangan mengambang apa pun.
-        - Digunakan untuk menciptakan ruang di dalam suatu elemen.
-    Singkatnya, margin digunakan untuk membuat ruang antar elemen, sedangkan padding digunakan untuk membuat ruang di dalam elemen.
-
-4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
-    Bootstrap berfokus pada pengembangan komponen secara komprehensif untuk penggunaan situs karena memiliki ukuran file yang lebih besar sehingga menyediakan banyak fitur dan komponen. Bootstrap dipakai saat memerlukan banyak komponen dan fungsi siap pakai. Sedangkan Tailwind berfokus pada menghasilkan elemen UI yang fungsional, rapi, dan fleksibel. Hal ini dikarenakan frameworknya lebih baru dan ringkas dibandingkan Bootstrap, dapat dikustomisasi, dan menghasilkan waktu pemuatan yang lebih cepat. Namun, memiliki lebih sedikit komponen dibandingkan Bootstrap karena memiliki ukuran file yang lebih kecil. Tailwind dipakai saat memerlukan komponen yang lebih dapat disesuaikan dan tidak memerlukan banyak komponen bawaan.
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+   Penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery merupakan kedua penerapan yang berbeda. Pada Fetch API, kita tidak perlu mengunduh atau memasang library tambahan untuk menggunakannya. Hal ini membuatnya lebih ringan dibandingkan dengan jQuery dan dapat memproses halaman web lebih cepat. Selain itu, Fetch API menggunakan konsep promise yang bertujuan untuk mengeksekusi tugas secara asinkron dan dapat mudah dimengerti oleh kita. Ditambah skala fleksibilitasnya yang dapat mengelola request dan respons HTTP dengan didukung oleh async/await. Namun, berbeda halnya dengan jQuery. Pada jQuery, ia memiliki library yang dapat dioperasikan pada browser lama dan memiliki banyak plugin yang tersedia untuk menambahkan fitur fitur khusus. Selain itu, jQuery mendukung kode pendek untuk digunakan pada tugas tugas yang sederhana. Dari kedua perbedaan tersebut, menurut saya ketika kita ingin membuat aplikasi yang berfokus pada performa yang bagus, maka kita memilih Fetch API karena lebih ringan, lebih cepat (tanpa perlu mengunduh atau memasang library tambahan), dan lebih modern. Namun, jika kita ingin aplikasi kita dapat berjalan pada browser versi lama dan ada fitur fitur khusus yang kita inginkan, maka kita memilih library jQuery. Pada akhirnya, kedua teknologi tersebut sama sama bagus. Bedanya terdapat pada konteks bagaimana keperluan aplikasi kita.
 
 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-Pertama tama saya melakukan hubungkan html dengan framework bootstrap. Caranya adalah menambahkan ```<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">``` pada base.html. Setelah terhubung, baru melakukan penghiasan sesuai kebutuhan pada htmlnya. Tidak lupa juga saya melihat referensi stylenya melalui web bootstrapnya.
+
+   1. AJAX GET
+      Menambahkan function get_product_json dan add_product_ajax di views.py untuk mengembalikkan data json dan menambahkan produk dengan ajax
+
+      ```
+        def get_product_json(request):
+            product_item = Product.objects.filter(user=request.user)
+            return HttpResponse(serializers.serialize('json', product_item))
+      ```
+
+      ```
+      ...
+        @csrf_exempt
+        def add_product_ajax(request):
+        if request.method == 'POST':
+            name = request.POST.get("name")
+            price = request.POST.get("price")
+            description = request.POST.get("description")
+            user = request.user
+
+            new_product = Product(name=name, price=price, description=description, user=user)
+            new_product.save()
+
+            return HttpResponse(b"CREATED", status=201)
+
+        return HttpResponseNotFound()
+      ```
+
+      dan menambahkan urlnya ke dalam urls.py
+
+      ```
+        path('get-product/', get_product_json, name='get_product_json'),
+        path('create-product-ajax/', add_product_ajax, name='add_product_ajax')
+      ```
+
+      Kemudian saya menghapus sturktur tabel sebelumnya dan menggantinya dengan kode berikut supaya dapat mendukung ajax
+
+      ```
+      <table id="product_table"></table>
+      ```
+
+      Saya menambahkan script ajax untuk mendapatkan itemsnya dengan kode berikut
+
+      ```
+        <script>
+            async function getProducts() {
+                return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+            }
+        </script>
+      ```
+
+      dan untuk menampilkan semua item yang tersedia sekaligus untuk merefresh halaman, saya menambahkan kode berikut,
+
+      ```
+        async function refreshProducts(){
+            document.getElementById("product_table").innerHTML = ""
+            const products = await getProducts()
+            let htmlString = `<tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Description</th>
+                                <th>Price</th>
+                            </tr>`
+            products.forEach((item) => {
+                htmlString += `\n<tr>
+                                    <td>${item.fields.name}</td>
+                                    <td>${item.fields.amount}</td>
+                                    <td>${item.fields.description}</td>
+                                    <td>${item.fields.price}</td>
+                                    <td>
+                                        <button href ="#" data-id = ${item.pk} class = "edit-product">
+                                            Edit
+                                        </button>
+                                        <button href ="#" data-id = ${item.pk} class = "delete-product">
+                                            Delete
+                                        </button>
+                                    </td>
+                                </tr>`
+            })
+
+            document.getElementById("product_table").innerHTML = htmlString
+      ```
+
+   2. Ajax POST
+      Saya membuat form untuk user dapat menginput dan sistem akan memasukkannya ke dalam database
+
+   ```
+   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+               <div class="modal-dialog">
+                   <div class="modal-content">
+                       <div class="modal-header">
+                           <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                       </div>
+                       <div class="modal-body">
+                           <form id="form" onsubmit="return false;">
+                               {% csrf_token %}
+                               <div class="mb-3">
+                                   <label for="name" class="col-form-label">Name:</label>
+                                   <input type="text" class="form-control" id="name" name="name"></input>
+                               </div>
+                               <div class="mb-3">
+                                   <label for="price" class="col-form-label">Amount:</label>
+                                   <input type="number" class="form-control" id="amount" name="amount"></input>
+                               </div>
+                               <div class="mb-3">
+                                   <label for="description" class="col-form-label">Description:</label>
+                                   <textarea class="form-control" id="description" name="description"></textarea>
+                               </div>
+                               <div class="mb-3">
+                                   <label for="price" class="col-form-label">Price:</label>
+                                   <input type="number" class="form-control" id="price" name="price"></input>
+                               </div>
+                           </form>
+                       </div>
+                       <div class="modal-footer">
+                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                           <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add
+                               Product</button>
+                       </div>
+                   </div>
+               </div>
+           </div>
+   ```
+
+   Kemudian menambahkan button untuk membuka modal formnya
+
+   ```
+   <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by AJAX</button>
+   ```
+
+   Supaya kode tersebut dapat berjalan, saya menambahkan script untuk menambahkan product dan buttonnya
+
+   ```
+   function addProduct() {
+       fetch("{% url 'main:add_product_ajax' %}", {
+           method: "POST",
+           body: new FormData(document.querySelector('#form'))
+       }).then(refreshProducts)
+
+       document.getElementById("form").reset()
+       return false
+   }
+   document.getElementById("button_add").onclick = addProduct
+   ```
+
+   3. Melakukan perintah collectstatic
+      Saya menjalankan `python manage.py collectstatic` yang bertujuan untuk mengumpulkan file static dari setiap aplikasi ke dalam suatu folder yang dapat dengan mudah disajikan pada produksi.
 
 ===========================================================================================================================
-    PERTANYAAN TUGAS 4
+Pertanyaan Tugas 5
+
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+   Element Selector: Memilih elemen HTML berdasarkan nama tagnya. Misalnya, p memilih semua elemen <p>. Selector ini berguna untuk menerapkan style ke semua elemen tipe tertentu.
+
+   ID Selector: Memilih elemen HTML berdasarkan atribut id-nya. Misalnya, #header memilih elemen dengan id="header". Selector ini berguna untuk menerapkan style pada elemen tertentu
+
+   Class Selector: Memilih elemen HTML berdasarkan atribut kelasnya. Misalnya, .highlight memilih semua elemen dengan class="highlight". Selector ini berguna untuk menerapkan gaya pada sekelompok elemen.
+
+   Universal Selector: Memilih semua elemen HTML pada halaman. Misalnya, \* memilih semua elemen. Selector ini berguna untuk menerapkan style ke seluruh elemen pada halaman.
+
+   Attribute Selector: Memilih elemen HTML berdasarkan nilai atributnya. Misalnya, [type="text"] memilih semua elemen dengan type="text". Selector ini berguna untuk menerapkan style pada elemen dengan nilai atribut tertentu.
+
+   Descendant Selector: Memilih elemen HTML yang merupakan turunan dari elemen lain. Misalnya, ada ul li, yakni memilih semua elemen <li> yang merupakan turunan dari elemen <ul>. Selector ini berguna untuk menerapkan gaya pada elemen yang terdapat di dalam elemen lain.
+
+   Child Selector: Memilih elemen HTML yang merupakan turunan langsung dari elemen lain. Misalnya, ada ul > li, yakni memilih semua elemen <li> yang merupakan turunan langsung dari elemen <ul>. Selector ini berguna untuk menerapkan gaya pada elemen yang merupakan turunan langsung dari elemen lain.
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+<artikel>: Tag ini digunakan untuk mewakili artikel atau bagian konten yang tidak bergantung pada halaman lainnya.
+<header>: Tag ini digunakan untuk menentukan header suatu bagian atau halaman.
+<footer>: Tag ini digunakan untuk menentukan footer suatu bagian atau halaman.
+<nav>: Tag ini digunakan untuk penjelasan sekumpulan link navigasi.
+<section>: Tag ini digunakan untuk penjelasan bagian dokumen, seperti bab atau grup konten terkait.
+<h1>: Tag ini memberikan efek tulisan besar seperti judul
+
+3. Jelaskan perbedaan antara margin dan padding.
+   Margin: - Ruang di sekitar batas elemen. - Mengontrol ruang di luar elemen. - Membersihkan area di sekitar elemen. - Dapat diubah secara individual untuk setiap sisi elemen. - Mendorong elemen yang berdekatan menjauh. - Digunakan untuk menciptakan ruang antar elemen.
+   Padding: - Ruang antara batas elemen dan isinya. - Mengontrol ruang di dalam elemen. - Menentukan bagaimana elemen terlihat dan ditempatkan di dalam wadah. - Bisa berupa bilangan negatif atau bilangan mengambang apa pun. - Digunakan untuk menciptakan ruang di dalam suatu elemen.
+   Singkatnya, margin digunakan untuk membuat ruang antar elemen, sedangkan padding digunakan untuk membuat ruang di dalam elemen.
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+   Bootstrap berfokus pada pengembangan komponen secara komprehensif untuk penggunaan situs karena memiliki ukuran file yang lebih besar sehingga menyediakan banyak fitur dan komponen. Bootstrap dipakai saat memerlukan banyak komponen dan fungsi siap pakai. Sedangkan Tailwind berfokus pada menghasilkan elemen UI yang fungsional, rapi, dan fleksibel. Hal ini dikarenakan frameworknya lebih baru dan ringkas dibandingkan Bootstrap, dapat dikustomisasi, dan menghasilkan waktu pemuatan yang lebih cepat. Namun, memiliki lebih sedikit komponen dibandingkan Bootstrap karena memiliki ukuran file yang lebih kecil. Tailwind dipakai saat memerlukan komponen yang lebih dapat disesuaikan dan tidak memerlukan banyak komponen bawaan.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+   Pertama tama saya melakukan hubungkan html dengan framework bootstrap. Caranya adalah menambahkan `<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">` pada base.html. Setelah terhubung, baru melakukan penghiasan sesuai kebutuhan pada htmlnya. Tidak lupa juga saya melihat referensi stylenya melalui web bootstrapnya.
+
+===========================================================================================================================
+PERTANYAAN TUGAS 4
 
     1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
     Django UserCreationForm merupakan struktur formulir yang disediakan oleh django melalui `django.contrib.auth.forms`. Form ini berfungsi untuk user register di web django yang mengandung field username, 2 password, dan satu email.
