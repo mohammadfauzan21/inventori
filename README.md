@@ -187,12 +187,12 @@ Pertanyaan Tugas 5
    Child Selector: Memilih elemen HTML yang merupakan turunan langsung dari elemen lain. Misalnya, ada ul > li, yakni memilih semua elemen <li> yang merupakan turunan langsung dari elemen <ul>. Selector ini berguna untuk menerapkan gaya pada elemen yang merupakan turunan langsung dari elemen lain.
 
 2. Jelaskan HTML5 Tag yang kamu ketahui.
-"<artikel>": Tag ini digunakan untuk mewakili artikel atau bagian konten yang tidak bergantung pada halaman lainnya.
-"<header>": Tag ini digunakan untuk menentukan header suatu bagian atau halaman.
-"<footer>": Tag ini digunakan untuk menentukan footer suatu bagian atau halaman.
-"<nav>": Tag ini digunakan untuk penjelasan sekumpulan link navigasi.
-"<section>": Tag ini digunakan untuk penjelasan bagian dokumen, seperti bab atau grup konten terkait.
-"<h1>": Tag ini memberikan efek tulisan besar seperti judul
+```<artikel>```: Tag ini digunakan untuk mewakili artikel atau bagian konten yang tidak bergantung pada halaman lainnya.
+```<header>```: Tag ini digunakan untuk menentukan header suatu bagian atau halaman.
+```<footer>```: Tag ini digunakan untuk menentukan footer suatu bagian atau halaman.
+```<nav>```: Tag ini digunakan untuk penjelasan sekumpulan link navigasi.
+```<section>```: Tag ini digunakan untuk penjelasan bagian dokumen, seperti bab atau grup konten terkait.
+```<h1>```: Tag ini memberikan efek tulisan besar seperti judul
 
 3. Jelaskan perbedaan antara margin dan padding.
    Margin: - Ruang di sekitar batas elemen. - Mengontrol ruang di luar elemen. - Membersihkan area di sekitar elemen. - Dapat diubah secara individual untuk setiap sisi elemen. - Mendorong elemen yang berdekatan menjauh. - Digunakan untuk menciptakan ruang antar elemen.
