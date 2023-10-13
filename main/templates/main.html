@@ -1,48 +1,163 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{{ nameApp }}</h1>
-
-    <h5>Name:</h5>
-    <p>{{name}}</p>
-
-    <h5>Class:</h5> 
-    <p>{{class}}</p>
-
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Price</th>
-            <th>Amount</th>
-            <th>Description</th>
-        </tr>
-
-        {% comment %} Berikut cara memperlihatkan data produk di bawah baris ini {% endcomment %}
-
-        {% for product in products %}
-            <tr>
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.amount}}</td>
-                <td>{{product.description}}</td>
-            </tr>
-        {% endfor %}
-    </table>
-
-    <br />
-    <h5>Sesi terakhir login: {{ last_login }}</h5>
-    <br>
-
-    <a href="{% url 'main:create_product' %}">
-        <button>
-            Add New Product
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid" style="align-items: baseline;">
+        <a class="navbar-brand" href="#" style="font-family: Arial, Helvetica, sans-serif; font-weight: bold;">{{ nameApp }}</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
-    </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <div class="nav-link active" aria-current="page">
+                        <h5>Welcome, <span>{{name}} dari {{class}}</span></h5>
+                    </div>
+                </li>
+            </ul>
+            <a href="{% url 'main:logout' %}">
+                <button>
+                    Logout
+                </button>
+            </a>
+        </div>
+    </div>
+</nav>
 
-    <a href="{% url 'main:logout' %}">
-        <button>
-            Logout
-        </button>
-    </a>
+<!-- Navbar end -->
 
+<div class="container">
+    <div class="title-addproduct border-0 shadow" style="padding: 20px 20px;">
+        <div class="head" style="margin-bottom: 20px;">
+            <div class="head-content">
+                <h1 class="container-title" style="background-color: #0195eb; padding: 5px 0px; text-align: center;">Produk Tersedia</h1>
+                <!-- <p class="container-desc" style="font-weight: bold; margin-bottom: 40px;">Produk yang masih ada dalam inventori berjumlah ${item|length}.</p> -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Product by
+                    AJAX</button>
+            </div>
+        </div>
+
+        <div class="table">
+            <table id="product_table"></table>
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Add New Product</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="form" onsubmit="return false;">
+                                {% csrf_token %}
+                                <div class="mb-3">
+                                    <label for="name" class="col-form-label">Name:</label>
+                                    <input type="text" class="form-control" id="name" name="name"></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price" class="col-form-label">Amount:</label>
+                                    <input type="number" class="form-control" id="amount" name="amount"></input>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="col-form-label">Description:</label>
+                                    <textarea class="form-control" id="description" name="description"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="price" class="col-form-label">Price:</label>
+                                    <input type="number" class="form-control" id="price" name="price"></input>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary" id="button_add" data-bs-dismiss="modal">Add
+                                Product</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <br />
+        <h5>Sesi terakhir login: {{ last_login }}</h5>
+        <br>
+
+    </div>
+</div>
+
+<script>
+    async function getProducts() {
+        return fetch("{% url 'main:get_product_json' %}").then((res) => res.json())
+    }
+
+    async function refreshProducts() {
+        document.getElementById("product_table").innerHTML = ""
+        const products = await getProducts()
+        let htmlString = `<tr>
+                            <th>Name</th>
+                            <th>Amount</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                        </tr>`
+        products.forEach((item) => {
+            htmlString += `\n<tr>
+                                <td>${item.fields.name}</td>
+                                <td>${item.fields.amount}</td>
+                                <td>${item.fields.description}</td>
+                                <td>${item.fields.price}</td>
+                                <td>
+                                    <button href ="#" data-id = ${item.pk} class = "edit-product">
+                                        Edit
+                                    </button>
+                                    <button href ="#" data-id = ${item.pk} class = "delete-product">
+                                        Delete
+                                    </button>
+                                </td>
+                            </tr>`
+        })
+
+        document.getElementById("product_table").innerHTML = htmlString
+
+        document.querySelectorAll('.edit-product').forEach(button => {
+            button.addEventListener('click', function () {
+                // Dapatkan ID produk dari atribut data-id tombol yang diklik
+                const productId = button.getAttribute('data-id');
+
+                // Buat URL yang sesuai dengan permintaan Anda (misalnya, URL untuk mengedit produk)
+                const editUrl = `/edit-product/${productId}`;
+
+                // Navigasikan ke URL editUrl
+                window.location.href = editUrl;
+            });
+        });
+
+        // Tambahkan event listener untuk tombol "Delete"
+        document.querySelectorAll('.delete-product').forEach(button => {
+            button.addEventListener('click', function () {
+                // Dapatkan ID produk dari atribut data-id tombol yang diklik
+                const productId = button.getAttribute('data-id');
+
+                // Buat URL yang sesuai dengan permintaan Anda (misalnya, URL untuk menghapus produk)
+                const deleteUrl = `/delete-product/${productId}`;
+
+                // Navigasikan ke URL deleteUrl
+                window.location.href = deleteUrl;
+            });
+        });
+    }
+    refreshProducts()
+
+    function addProduct() {
+        fetch("{% url 'main:add_product_ajax' %}", {
+            method: "POST",
+            body: new FormData(document.querySelector('#form'))
+        }).then(refreshProducts)
+
+        document.getElementById("form").reset()
+        return false
+    }
+    document.getElementById("button_add").onclick = addProduct
+</script>
 {% endblock content %}

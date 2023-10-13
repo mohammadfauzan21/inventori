@@ -6,40 +6,56 @@
 
 {% block content %}
 
-<div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
-        
-    Don't have an account yet? <a href="{% url 'main:register' %}">Register Now</a>
-
-</div>
+<body style="background-color: #0195eb;">
+    <div class="login">
+        <section>
+            <div class="container mt-5 pt-5">
+                <div class="row">
+                    <div class="col-12 col-sm-8 col-md-6 m-auto">
+                        <div class="card border-0 shadow">
+                            <div class="card-body"
+                                style="background-color: #ffffff; display: flex; justify-content: center; padding: 40px; border-radius: 60px; flex-direction: column; ">
+                                <h1
+                                    style="display: flex; justify-content: center; color: black; background-color: #ffffff; font-family: Arial, Helvetica, sans-serif;">
+                                    Login</h1>
+                                <form method="POST" action="">
+                                    {% csrf_token %}
+                                    <p
+                                        style="font-size: 16px; font-weight: 600; background-color: #ffffff; height: 16px; margin-top: 14px;">
+                                        Username :</p>
+                                    <input type="text" name="username" id="" class="form-control my-4 py-2"
+                                        placeholder="Username">
+                                    <p style="font-size: 16px; font-weight: 600; background-color: #ffffff; height: 16px;">
+                                        Password :</p>
+                                    <input type="password" name="password" id="" class="form-control my-4 py-2"
+                                        placeholder="Password">
+                                    <div class="text-center mt-3">
+                                        <button class="btn btn-primary">
+                                            Login
+                                        </button>
+                                        <p
+                                            style="font-size: 14px; background-color: #ffffff; justify-content: center; display: flex; margin-top: 12px;">
+                                            Don't have an account yet?
+                                            <a href="{% url 'main:register' %}"
+                                                style="color: #0195eb; font-size: 14px; background-color: #ffffff; margin-left: 8px;">Register
+                                                Now</a>
+                                        </p>
+                                    </div>
+                                </form>
+                                {% if messages %}
+                                <ul>
+                                    {% for message in messages %}
+                                    <li>{{ message }}</li>
+                                    {% endfor %}
+                                </ul>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
 
 {% endblock content %}
